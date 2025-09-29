@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Main data collection orchestrator for F1 AMF project
 Runs all Phase 1 data collection steps in sequence
