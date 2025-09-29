@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Phase 2 orchestrator - Data cleaning & validation
 Runs cleaning and validation steps in sequence
