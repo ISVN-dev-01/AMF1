@@ -1,4 +1,4 @@
-# AMF1 - F1 Machine Learning Project: Phase 4 Complete ✅
+
 
 ## Project Overview
 Complete F1 machine learning pipeline with **leakage-safe feature engineering** for pole position and race outcome prediction.
