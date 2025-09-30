@@ -8,3 +8,4 @@ python-dotenv==1.0.0
 pyarrow==14.0.1
 pytest==7.4.3
 numpy==1.26.2
+scikit-learn==1.7.2
