@@ -1,0 +1,24 @@
+INFO:     Started server process [98719]
+INFO:     Waiting for application startup.
+INFO:src.serve.app:🚀 Starting F1 Prediction API...
+INFO:src.serve.app:✅ All models loaded successfully
+INFO:src.serve.app:   Features: 23
+INFO:src.serve.app:   Model version: 1.0.1
+INFO:src.serve.app:✅ API ready for predictions
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61413 - "GET / HTTP/1.1" 200 OK
+INFO:src.serve.app:Processing 2 drivers for qualifying prediction
+INFO:src.serve.app:✅ Generated 2 qualifying predictions
+INFO:     127.0.0.1:61431 - "POST /predict_quali HTTP/1.1" 200 OK
+INFO:src.serve.app:Processing full race prediction for 2 drivers
+INFO:src.serve.app:Processing 2 drivers for qualifying prediction
+INFO:src.serve.app:✅ Generated 2 qualifying predictions
+INFO:src.serve.app:Processing 2 drivers for race winner prediction
+INFO:src.serve.app:✅ Generated 2 race winner predictions
+INFO:src.serve.app:✅ Generated full race predictions
+INFO:     127.0.0.1:61447 - "POST /predict_full HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [98719]
