@@ -1,0 +1,13 @@
+{
+  "split_strategy": "time_aware",
+  "train_years": "2014-2022",
+  "val_years": "2023",
+  "test_years": "2024",
+  "cv_method": "GroupKFold",
+  "cv_splits": 5,
+  "group_column": "race_id",
+  "created_at": "2025-09-30T13:53:08.217213",
+  "train_size": 1780,
+  "val_size": 200,
+  "test_size": 200
+}
