@@ -1,0 +1,5 @@
+[2025-09-30 16:57:38] 🤖 F1 ML Retraining Scheduler started (mode: check)
+[2025-09-30 16:57:38] 🔍 Checking retraining triggers...
+[2025-09-30 16:57:38] ⚠️  Monitoring database not found, skipping trigger check
+[2025-09-30 16:57:38] ✅ No retraining triggers detected
+[2025-09-30 16:57:38] 🏁 Scheduler completed
