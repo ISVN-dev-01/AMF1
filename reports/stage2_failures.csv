@@ -1,0 +1,11 @@
+race_id,driver_id,circuit_id,is_winner,y_pred_proba,probability_error
+2024_08,verstappen,monaco,1,0.03,0.97
+2024_15,perez,netherlands,1,0.07,0.9299999999999999
+2024_07,norris,emilia_romagna,1,0.09,0.91
+2024_12,piastri,britain,1,0.1,0.9
+2024_13,norris,hungary,1,0.1,0.9
+2024_11,perez,austria,1,0.13,0.87
+2024_14,perez,belgium,1,0.15,0.85
+2024_09,stroll,canada,1,0.18,0.8200000000000001
+2024_10,stroll,spain,1,0.29,0.71
+2024_12,russell,britain,0,0.46,0.46

@@ -1,0 +1,2 @@
+model,test_accuracy,test_logloss,race_top1_accuracy,race_top3_accuracy,total_races
+Simulator_Enhanced_RF,0.8266666666666667,0.4306558369771037,0.06666666666666667,0.06666666666666667,15

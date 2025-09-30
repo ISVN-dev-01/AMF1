@@ -1,0 +1,2 @@
+model,accuracy,log_loss,brier_score,auc,race_top1_accuracy,race_top3_accuracy,total_races_evaluated
+Ensemble_Classifier,0.8466666666666667,0.6602413246405391,0.13931977646944055,0.6567901234567901,0.13333333333333333,0.4,15

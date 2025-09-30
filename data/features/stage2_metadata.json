@@ -1,0 +1,28 @@
+{
+  "total_features": 51,
+  "total_samples": 450,
+  "total_races": 15,
+  "total_winners": 45,
+  "stage1_features": [
+    "pred_quali_time_gbm",
+    "pred_quali_rank_gbm",
+    "pred_pole_prob_gbm",
+    "pred_quali_time_baseline",
+    "pred_pole_prob_baseline",
+    "pred_quali_rank_baseline"
+  ],
+  "race_features": [
+    "predicted_grid_position",
+    "race_distance_laps",
+    "safety_car_prob_track",
+    "team_reliability",
+    "driver_overtake_skill",
+    "grid_position_advantage"
+  ],
+  "splits": [
+    "train",
+    "val",
+    "test"
+  ],
+  "target_column": "is_winner"
+}
