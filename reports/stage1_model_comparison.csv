@@ -1,0 +1,7 @@
+model,split,total_races,top1_accuracy,top3_accuracy,top5_accuracy,mrr,ndcg_at_5
+FP3_Baseline,train,178,0.03932584269662921,0.8125,0.9375,0.653125,0.7251942429210425
+FP3_Baseline,val,20,0.0,0.0,0.0,0.0,0.0
+FP3_Baseline,test,20,0.0,0.0,0.0,0.0,0.0
+GBM,train,178,0.03932584269662921,0.8125,0.9375,0.653125,0.7251942429210425
+GBM,val,20,0.0,0.0,0.0,0.0,0.0
+GBM,test,20,0.0,0.0,0.0,0.0,0.0
