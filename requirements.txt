@@ -6,16 +6,16 @@ requests==2.31.0
 
 # Data processing  
 pandas==2.1.4
-numpy==1.24.4
+numpy==1.26.4
 pyarrow==14.0.1
 
 # ML core
 scikit-learn==1.3.2
 joblib==1.3.2
 
-# ML packages (conservative versions)
-lightgbm==3.3.5
-xgboost==1.7.6
+# ML packages (Python 3.12 compatible versions)
+lightgbm==4.1.0
+xgboost==2.0.3
 
 # Visualization
 matplotlib==3.7.5  
@@ -55,3 +55,7 @@ safety==2.3.1
 
 # Performance testing
 locust==2.17.0
+
+# Build tools (for Python 3.12 compatibility)
+setuptools>=68.0.0
+wheel>=0.41.0
