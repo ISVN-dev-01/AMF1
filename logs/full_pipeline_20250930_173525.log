@@ -1,0 +1,8 @@
+2025-09-30 17:35:25,003 - INFO - 🏁 Starting AMF1 Full Pipeline
+2025-09-30 17:35:25,003 - INFO - Season: 2024
+2025-09-30 17:35:25,003 - INFO - Quick Mode: True
+2025-09-30 17:35:25,003 - INFO - Skip Data Collection: False
+2025-09-30 17:35:25,003 - INFO - Skip Training: False
+2025-09-30 17:35:25,003 - INFO - 🔍 Checking prerequisites...
+2025-09-30 17:35:25,003 - ERROR - ❌ Missing required package: No module named 'lightgbm'
+2025-09-30 17:35:25,003 - ERROR - ❌ Prerequisites check failed
