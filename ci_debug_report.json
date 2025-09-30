@@ -1,0 +1,39 @@
+{
+  "timestamp": "Tue Sep 30 19:37:35 IST 2025",
+  "python_version": "3.12.3 (v3.12.3:f6650f9ad7, Apr  9 2024, 08:18:47) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "darwin",
+  "working_directory": "/Users/vishale/Documents/AMF!-MLmodel/AMF1",
+  "environment_variables": {
+    "PATH": "/opt/homebrew/bin:/opt/homebrew/bin:/opt/homebrew/bin:/opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/vishale/.local/bin:/opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/Users/vishale/.vscode/extensions/ms-python.debugpy-2025.10.0-darwin-arm64/bundled/scripts/noConfigScripts:/Users/vishale/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand",
+    "BUNDLED_DEBUGPY_PATH": "/Users/vishale/.vscode/extensions/ms-python.debugpy-2025.10.0-darwin-arm64/bundled/libs/debugpy",
+    "PYTHONSTARTUP": "/Users/vishale/Library/Application Support/Code/User/workspaceStorage/502b8b9a7aa1cfcfdaecec0f88b72ce1/ms-python.python/pythonrc.py",
+    "PYTHON_BASIC_REPL": "1",
+    "VSCODE_PYTHON_AUTOACTIVATE_GUARD": "1"
+  },
+  "file_status": {
+    "requirements.txt": {
+      "exists": true,
+      "size": 540
+    },
+    ".github/workflows/ci.yml": {
+      "exists": true,
+      "size": 11447
+    },
+    "src/serve/app.py": {
+      "exists": true,
+      "size": 15427
+    },
+    "tests/test_api.py": {
+      "exists": true,
+      "size": 19191
+    },
+    "create_sample_data.py": {
+      "exists": true,
+      "size": 4592
+    },
+    "create_test_models.py": {
+      "exists": true,
+      "size": 3186
+    }
+  }
+}

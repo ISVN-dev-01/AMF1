@@ -15,13 +15,25 @@ import logging
 import sys
 import time
 
-# Import monitoring system
-sys.path.append(str(Path(__file__).parent.parent))
-from monitoring.metrics_collector import f1_monitor, update_race_metrics
-
-# Configure logging
+# Configure logging first
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Import monitoring system (with error handling for CI)
+try:
+    sys.path.append(str(Path(__file__).parent.parent))
+    from monitoring.metrics_collector import f1_monitor, update_race_metrics
+    MONITORING_ENABLED = True
+except ImportError as e:
+    logger.warning(f"Monitoring system not available: {e}")
+    MONITORING_ENABLED = False
+    # Create dummy functions for testing
+    class DummyMonitor:
+        def track_prediction_request(self, *args, **kwargs): pass
+        def update_model_performance(self, *args, **kwargs): pass
+        def get_metrics_response(self): return Response(content="", media_type="text/plain")
+    f1_monitor = DummyMonitor()
+    def update_race_metrics(*args, **kwargs): pass
 
 # Initialize FastAPI app
 app = FastAPI(
