@@ -1,0 +1,369 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "F1 ML Model Production Monitoring",
+    "tags": ["ml", "f1", "monitoring", "production"],
+    "timezone": "UTC",
+    "refresh": "30s",
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "type": "stat",
+        "title": "Model Status",
+        "gridPos": {"h": 8, "w": 4, "x": 0, "y": 0},
+        "targets": [
+          {
+            "expr": "f1_model_health_status",
+            "legendFormat": "Health Status"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "mappings": [
+              {"value": 1, "text": "Healthy", "color": "green"},
+              {"value": 0, "text": "Unhealthy", "color": "red"}
+            ],
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": 0},
+                {"color": "green", "value": 1}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 2,
+        "type": "stat",
+        "title": "Current Model Version",
+        "gridPos": {"h": 8, "w": 4, "x": 4, "y": 0},
+        "targets": [
+          {
+            "expr": "f1_model_version_info",
+            "legendFormat": "Version {{version}}"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "stat",
+        "title": "Prediction Requests (5m)",
+        "gridPos": {"h": 8, "w": 4, "x": 8, "y": 0},
+        "targets": [
+          {
+            "expr": "rate(f1_prediction_requests_total[5m])",
+            "legendFormat": "Requests/sec"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "reqps",
+            "decimals": 2
+          }
+        }
+      },
+      {
+        "id": 4,
+        "type": "stat",
+        "title": "Error Rate (5m)",
+        "gridPos": {"h": 8, "w": 4, "x": 12, "y": 0},
+        "targets": [
+          {
+            "expr": "rate(f1_prediction_errors_total[5m]) / rate(f1_prediction_requests_total[5m]) * 100",
+            "legendFormat": "Error %"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "decimals": 2,
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": 0},
+                {"color": "yellow", "value": 5},
+                {"color": "red", "value": 10}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 5,
+        "type": "stat",
+        "title": "Avg Response Time (5m)",
+        "gridPos": {"h": 8, "w": 4, "x": 16, "y": 0},
+        "targets": [
+          {
+            "expr": "rate(f1_prediction_latency_seconds_sum[5m]) / rate(f1_prediction_latency_seconds_count[5m]) * 1000",
+            "legendFormat": "Latency (ms)"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "decimals": 1,
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": 0},
+                {"color": "yellow", "value": 500},
+                {"color": "red", "value": 1000}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 6,
+        "type": "stat",
+        "title": "Feature Drift Score",
+        "gridPos": {"h": 8, "w": 4, "x": 20, "y": 0},
+        "targets": [
+          {
+            "expr": "f1_feature_drift_score",
+            "legendFormat": "Drift Score"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "decimals": 3,
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": 0},
+                {"color": "yellow", "value": 0.1},
+                {"color": "red", "value": 0.2}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 7,
+        "type": "timeseries",
+        "title": "Prediction Requests Over Time",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+        "targets": [
+          {
+            "expr": "rate(f1_prediction_requests_total[1m])",
+            "legendFormat": "Requests/min"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "reqps",
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "smooth",
+              "fillOpacity": 10
+            }
+          }
+        }
+      },
+      {
+        "id": 8,
+        "type": "timeseries",
+        "title": "Response Time Distribution",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(f1_prediction_latency_seconds_bucket[5m])) * 1000",
+            "legendFormat": "95th percentile"
+          },
+          {
+            "expr": "histogram_quantile(0.50, rate(f1_prediction_latency_seconds_bucket[5m])) * 1000",
+            "legendFormat": "50th percentile"
+          },
+          {
+            "expr": "rate(f1_prediction_latency_seconds_sum[5m]) / rate(f1_prediction_latency_seconds_count[5m]) * 1000",
+            "legendFormat": "Average"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms"
+          }
+        }
+      },
+      {
+        "id": 9,
+        "type": "timeseries",
+        "title": "Model Performance Metrics",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16},
+        "targets": [
+          {
+            "expr": "f1_stage1_accuracy",
+            "legendFormat": "Stage-1 Accuracy"
+          },
+          {
+            "expr": "f1_stage2_accuracy",
+            "legendFormat": "Stage-2 Accuracy"
+          },
+          {
+            "expr": "f1_calibration_score",
+            "legendFormat": "Calibration Score"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "min": 0,
+            "max": 1
+          }
+        }
+      },
+      {
+        "id": 10,
+        "type": "timeseries",
+        "title": "Feature Drift Detection",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 16},
+        "targets": [
+          {
+            "expr": "f1_feature_drift_score",
+            "legendFormat": "Overall Drift Score"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "custom": {
+              "thresholds": [
+                {"color": "red", "value": 0.2},
+                {"color": "yellow", "value": 0.1}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 11,
+        "type": "table",
+        "title": "Recent Race Results",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 24},
+        "targets": [
+          {
+            "expr": "f1_race_results_total",
+            "legendFormat": "{{race_name}} - {{position}}"
+          }
+        ],
+        "transformations": [
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {},
+              "indexByName": {},
+              "renameByName": {
+                "race_name": "Race",
+                "position": "Position",
+                "points": "Points"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "type": "logs",
+        "title": "Model Logs",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 24},
+        "targets": [
+          {
+            "expr": "{job=\"f1-ml-api\"} |= \"ERROR\" or \"WARNING\"",
+            "legendFormat": ""
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "type": "bargauge",
+        "title": "Prediction Types Distribution",
+        "gridPos": {"h": 8, "w": 8, "x": 0, "y": 32},
+        "targets": [
+          {
+            "expr": "f1_prediction_requests_total",
+            "legendFormat": "{{prediction_type}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short"
+          }
+        }
+      },
+      {
+        "id": 14,
+        "type": "piechart",
+        "title": "Model Version Usage",
+        "gridPos": {"h": 8, "w": 8, "x": 8, "y": 32},
+        "targets": [
+          {
+            "expr": "f1_model_version_info",
+            "legendFormat": "{{version}}"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "type": "stat",
+        "title": "Days Since Last Retrain",
+        "gridPos": {"h": 8, "w": 8, "x": 16, "y": 32},
+        "targets": [
+          {
+            "expr": "(time() - f1_last_retrain_timestamp) / 86400",
+            "legendFormat": "Days"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "d",
+            "decimals": 0,
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": 0},
+                {"color": "yellow", "value": 7},
+                {"color": "red", "value": 14}
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "templating": {
+      "list": [
+        {
+          "name": "model_version",
+          "type": "query",
+          "query": "f1_model_version_info",
+          "regex": "/version=\"([^\"]*)\"/",
+          "multi": false,
+          "includeAll": false,
+          "current": {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          }
+        }
+      ]
+    },
+    "annotations": {
+      "list": [
+        {
+          "name": "Model Deployments",
+          "enable": true,
+          "iconColor": "blue",
+          "expr": "changes(f1_model_version_info[1h]) > 0"
+        },
+        {
+          "name": "Retrain Events",
+          "enable": true,
+          "iconColor": "green",
+          "expr": "changes(f1_last_retrain_timestamp[1h]) > 0"
+        }
+      ]
+    }
+  }
+}

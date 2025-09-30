@@ -1,0 +1,11 @@
+{
+  "backup_timestamp": "20250930_165714",
+  "retrain_id": "retrain_20250930_165714",
+  "backed_up_files": [
+    "stage1_lgb_ensemble.pkl",
+    "stage2_ensemble.pkl",
+    "preprocessor.pkl",
+    "feature_metadata.pkl"
+  ],
+  "backup_reason": "pre_retrain_backup"
+}

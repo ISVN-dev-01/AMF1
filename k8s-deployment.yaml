@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: f1-ml-api
+  name: f1-ml-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: f1-ml-api
+  template:
+    metadata:
+      labels:
+        app: f1-ml-api
+    spec:
+      containers:
+      - env:
+        - name: PYTHONPATH
+          value: /app
+        - name: PYTHONDONTWRITEBYTECODE
+          value: '1'
+        - name: PYTHONUNBUFFERED
+          value: '1'
+        image: f1-ml-api:1.0.0
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        name: f1-ml-api
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1Gi
+          requests:
+            cpu: 250m
+            memory: 512Mi

@@ -1,0 +1,32 @@
+{
+  "drivers": [
+    {
+      "driver_id": 1,
+      "team_id": 1,
+      "circuit_id": 1,
+      "temperature": 25.0,
+      "humidity": 60.0,
+      "wind_speed": 10.0,
+      "rain_probability": 0.1,
+      "track_temperature": 35.0,
+      "additional_features": {
+        "practice_best_time": 78.5
+      }
+    },
+    {
+      "driver_id": 2,
+      "team_id": 2,
+      "circuit_id": 1,
+      "temperature": 25.0,
+      "humidity": 60.0,
+      "wind_speed": 10.0,
+      "rain_probability": 0.1,
+      "track_temperature": 35.0,
+      "additional_features": {
+        "practice_best_time": 79.1
+      }
+    }
+  ],
+  "session_type": "qualifying",
+  "race_id": 1
+}

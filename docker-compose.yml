@@ -1,0 +1,24 @@
+services:
+  f1-ml-api:
+    build: .
+    environment:
+    - PYTHONPATH=/app
+    - PYTHONDONTWRITEBYTECODE=1
+    - PYTHONUNBUFFERED=1
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 5s
+      test:
+      - CMD
+      - curl
+      - -f
+      - http://localhost:8080/health
+      timeout: 10s
+    ports:
+    - 8080:8080
+    restart: unless-stopped
+    volumes:
+    - ./models:/app/models:ro
+    - ./data:/app/data:ro
+version: '3.8'

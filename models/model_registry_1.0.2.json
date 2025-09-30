@@ -1,0 +1,31 @@
+{
+  "model_version": "1.0.2",
+  "retrain_id": "retrain_20250930_165714",
+  "training_timestamp": "2025-09-30T16:57:16.877796",
+  "training_performance": {
+    "stage1_mae": 0.04,
+    "stage2_accuracy": 1.0
+  },
+  "comparison_results": {
+    "success": true,
+    "old_performance": {
+      "stage1_mae": 0.011,
+      "stage2_accuracy": 0.95,
+      "overall_score": 0.85
+    },
+    "new_performance": {
+      "stage1_mae": 0.01,
+      "stage2_accuracy": 0.96,
+      "overall_score": 0.87
+    },
+    "improvements": {
+      "stage1_mae_improvement": 0.0009999999999999992,
+      "stage2_accuracy_improvement": 0.010000000000000009,
+      "overall_improvement": 0.020000000000000018
+    },
+    "should_deploy": true
+  },
+  "deployment_status": "deployed",
+  "previous_version": "1.0.1",
+  "created_by": "automated_retrain_pipeline"
+}
