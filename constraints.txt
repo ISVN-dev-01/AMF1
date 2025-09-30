@@ -1,0 +1,36 @@
+# constraints.txt - Pin problematic packages that can break across Python versions
+# Use with: pip install -r requirements.txt -c constraints.txt
+
+# Build tools - ensure compatibility
+setuptools>=68.0.0,<70.0.0
+wheel>=0.41.0,<1.0.0
+
+# Core data/ML packages - pin to stable versions
+numpy>=1.26.0,<2.0.0
+pandas>=2.1.0,<3.0.0
+scikit-learn>=1.3.0,<1.4.0
+
+# FastF1 and F1 data - pin to avoid API changes
+fastf1>=3.3.0,<4.0.0
+
+# ML packages that can have build issues
+lightgbm>=4.1.0,<5.0.0
+xgboost>=2.0.0,<3.0.0
+shap>=0.42.0,<1.0.0
+
+# Visualization - avoid display issues in CI
+matplotlib>=3.7.0,<4.0.0
+seaborn>=0.12.0,<1.0.0
+
+# Testing framework - stable versions
+pytest>=7.4.0,<8.0.0
+pytest-cov>=4.1.0,<5.0.0
+
+# Security tools - avoid packaging conflicts
+safety>=2.3.0,<3.0.0
+bandit>=1.7.0,<2.0.0
+
+# API framework
+fastapi>=0.100.0,<1.0.0
+uvicorn>=0.20.0,<1.0.0
+pydantic>=2.5.0,<3.0.0
