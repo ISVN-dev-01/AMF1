@@ -3,12 +3,12 @@
     "type": "RandomForestRegressor",
     "target": "qualifying_time",
     "features": 10,
-    "created": "2025-09-30T19:01:37.938458"
+    "created": "2025-09-30T19:37:27.193534"
   },
   "stage2_model": {
     "type": "RandomForestClassifier",
     "target": "race_winner",
     "features": 10,
-    "created": "2025-09-30T19:01:37.938928"
+    "created": "2025-09-30T19:37:27.194925"
   }
 }
