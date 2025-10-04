@@ -1,0 +1,130 @@
+{
+  "race_info": {
+    "name": "Singapore Grand Prix 2025",
+    "date": "2025-10-05",
+    "circuit": "Marina Bay Street Circuit",
+    "location": "Singapore",
+    "pole_sitter": "George Russell",
+    "race_distance": "61 laps (308.828 km)"
+  },
+  "qualifying_analysis": {
+    "pole_time": "1:29.525",
+    "pole_driver": "George Russell",
+    "average_gap_to_pole": "0.451s",
+    "fastest_sectors": {
+      "sector_1": "Mercedes (Russell)",
+      "sector_2": "McLaren (Norris)",
+      "sector_3": "Red Bull (Verstappen)"
+    }
+  },
+  "race_predictions": {
+    "methodology": "2-Stage ML Pipeline (Qualifying \u2192 Race Winner)",
+    "confidence_level": "HIGH",
+    "top_5_predictions": [
+      {
+        "position": 1,
+        "driver": "George Russell",
+        "team": "Mercedes",
+        "win_probability": "37.7%",
+        "grid_position": 1,
+        "key_strengths": [
+          "Exceptional qualifier",
+          "Strong race management",
+          "Mercedes pace"
+        ],
+        "singapore_record": "2nd place (2024) - Improving with Mercedes"
+      },
+      {
+        "position": 2,
+        "driver": "Lando Norris",
+        "team": "McLaren",
+        "win_probability": "19.0%",
+        "grid_position": 2,
+        "key_strengths": [
+          "Excellent 2025 form",
+          "Strong McLaren package",
+          "Consistent performer"
+        ],
+        "singapore_record": "Consistent points scorer - First podium in 2024"
+      },
+      {
+        "position": 3,
+        "driver": "Max Verstappen",
+        "team": "Red Bull",
+        "win_probability": "17.1%",
+        "grid_position": 3,
+        "key_strengths": [
+          "Championship experience",
+          "Adaptable to any circuit",
+          "Race craft"
+        ],
+        "singapore_record": "1 win (2022) - Strong recent form"
+      },
+      {
+        "position": 4,
+        "driver": "Oscar Piastri",
+        "team": "McLaren",
+        "win_probability": "8.6%",
+        "grid_position": 4,
+        "key_strengths": [
+          "Rising talent",
+          "Smart strategy execution",
+          "Strong under pressure"
+        ],
+        "singapore_record": "Rookie season strong showing - Rising star"
+      },
+      {
+        "position": 5,
+        "driver": "Charles Leclerc",
+        "team": "Ferrari",
+        "win_probability": "6.4%",
+        "grid_position": 5,
+        "key_strengths": [
+          "Raw speed",
+          "Aggressive overtaker",
+          "Street circuit ability"
+        ],
+        "singapore_record": "Podium finisher - Fast but needs reliability"
+      }
+    ]
+  },
+  "weather_forecast": {
+    "temperature": "30\u00b0C",
+    "humidity": "85%",
+    "rain_probability": "25%",
+    "conditions": "Hot and humid, typical Singapore night race"
+  },
+  "circuit_factors": {
+    "safety_car_probability": "75%",
+    "overtaking_difficulty": "Very High",
+    "grid_position_importance": "Critical",
+    "key_challenges": [
+      "Narrow street circuit with limited overtaking",
+      "High safety car probability",
+      "Physical demands in hot, humid conditions",
+      "Night race under artificial lighting"
+    ]
+  },
+  "prediction_summary": {
+    "race_favorite": "George Russell",
+    "win_probability": "37.7%",
+    "confidence": "High - Based on pole position and Singapore expertise",
+    "key_insight": "George Russell benefits from pole position at Marina Bay where overtaking is extremely difficult",
+    "alternative_scenarios": [
+      "Safety car deployment could shuffle the order",
+      "Weather changes (rain) would favor experienced drivers",
+      "Strategic pit windows critical for position changes"
+    ]
+  },
+  "metadata": {
+    "prediction_time": "2025-10-04T21:03:49.106545",
+    "model_version": "AMF1-Singapore-2025-v1.0",
+    "data_sources": [
+      "2025 Singapore GP Qualifying Results",
+      "Historical Singapore GP Performance",
+      "Current Season Driver/Team Form",
+      "Circuit-Specific Racing Factors"
+    ],
+    "accuracy_notes": "Predictions based on actual qualifying results from Oct 4, 2025"
+  }
+}

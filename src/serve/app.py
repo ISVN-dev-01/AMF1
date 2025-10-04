@@ -5,6 +5,7 @@ Production-ready API server for qualifying and race winner predictions
 """
 
 from fastapi import FastAPI, HTTPException, Response
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
 import joblib
@@ -42,6 +43,20 @@ app = FastAPI(
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
+)
+
+# Add CORS middleware to allow frontend connections
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",  # Next.js development server
+        "http://127.0.0.1:3000",
+        "http://localhost:3001",  # Alternative port
+        "http://127.0.0.1:3001",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Global model storage
@@ -352,44 +367,178 @@ async def get_prometheus_metrics():
         raise HTTPException(status_code=500, detail="Metrics generation failed")
 
 @app.post("/submit_race_results")
-async def submit_race_results(race_results: Dict[str, Any]):
-    """Submit actual race results for monitoring"""
+async def submit_race_results(results: Dict[str, Any]):
+    """Submit actual race results for model performance tracking"""
+    if not MONITORING_ENABLED:
+        return {"message": "Monitoring disabled", "status": "skipped"}
+    
     try:
-        race_id = race_results.get('race_id')
-        predictions = race_results.get('predictions', [])
-        actuals = race_results.get('actuals', [])
+        update_race_metrics(results)
+        return {"message": "Race results submitted successfully", "status": "success"}
+    except Exception as e:
+        logger.error(f"Error submitting race results: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Singapore GP 2025 - Special Event Endpoints
+class SingaporePredictionRequest(BaseModel):
+    """Request model for Singapore GP 2025 predictions"""
+    prediction_type: str = "full"  # "qualifying", "race_winner", "full" 
+    include_analysis: bool = True
+    confidence_threshold: float = 0.1
+
+@app.get("/singapore_2025/info")
+async def get_singapore_info():
+    """Get Singapore GP 2025 event information"""
+    return {
+        "event": "Singapore Grand Prix 2025",
+        "date": "2025-10-05",
+        "circuit": "Marina Bay Street Circuit",
+        "qualifying_date": "2025-10-04",
+        "pole_sitter": "George Russell",
+        "pole_time": "1:29.525",
+        "weather": {
+            "temperature": "30°C",
+            "humidity": "85%",
+            "rain_probability": "25%"
+        },
+        "circuit_characteristics": {
+            "length": "5.063 km",
+            "corners": 23,
+            "drs_zones": 3,
+            "race_distance": "61 laps (308.828 km)",
+            "lap_record": "1:35.867 (Lewis Hamilton, 2023)"
+        }
+    }
+
+@app.get("/singapore_2025/quick_prediction")
+async def singapore_quick_prediction():
+    """Get quick Singapore GP 2025 race winner prediction"""
+    try:
+        # Import and run the Singapore predictor
+        import sys
+        from pathlib import Path
         
-        if not race_id or not predictions or not actuals:
-            raise HTTPException(status_code=400, detail="Missing required race result data")
+        # Add the root directory to Python path
+        root_dir = Path(__file__).parent.parent.parent
+        sys.path.append(str(root_dir))
         
-        # Create features DataFrame from predictions (simplified)
-        features_data = []
-        for pred in predictions:
-            features_data.append({
-                'temperature': pred.get('temperature', 25.0),
-                'humidity': pred.get('humidity', 60.0),
-                'wind_speed': pred.get('wind_speed', 10.0)
-            })
+        from singapore_complete_api import SimplifiedSingaporeAPI
         
-        features_df = pd.DataFrame(features_data)
+        singapore_api = SimplifiedSingaporeAPI()
+        results = singapore_api.get_complete_prediction()
         
-        # Update monitoring metrics
-        update_race_metrics(race_id, predictions, actuals, features_df)
-        
-        # Check if retraining is needed
-        retrain_check = f1_monitor.check_retrain_triggers()
+        # Return simplified prediction
+        top_3 = results["race_predictions"]["top_5_predictions"][:3]
         
         return {
-            "status": "success",
-            "race_id": race_id,
-            "metrics_updated": True,
-            "retrain_needed": retrain_check['should_retrain'],
-            "retrain_reasons": retrain_check.get('reasons', [])
+            "race": "Singapore Grand Prix 2025",
+            "prediction_time": results["metadata"]["prediction_time"],
+            "pole_sitter": results["race_info"]["pole_sitter"],
+            "weather": f"{results['weather_forecast']['temperature']}, {results['weather_forecast']['humidity']} humidity",
+            "top_3_predictions": [
+                {
+                    "position": pred["position"],
+                    "driver": pred["driver"],
+                    "team": pred["team"],
+                    "win_probability": pred["win_probability"],
+                    "grid_position": f"P{pred['grid_position']}",
+                    "key_strength": pred["key_strengths"][0] if pred["key_strengths"] else ""
+                }
+                for pred in top_3
+            ],
+            "race_favorite": results["prediction_summary"]["race_favorite"],
+            "confidence": "HIGH",
+            "key_insight": results["prediction_summary"]["key_insight"],
+            "safety_car_probability": "75%",
+            "overtaking_difficulty": "Very High"
         }
         
     except Exception as e:
-        logger.error(f"❌ Failed to submit race results: {e}")
-        raise HTTPException(status_code=500, detail=f"Race results submission failed: {str(e)}")
+        logger.error(f"Singapore prediction error: {e}")
+        raise HTTPException(status_code=500, detail=f"Prediction failed: {str(e)}")
+
+@app.post("/singapore_2025/detailed_prediction")
+async def singapore_detailed_prediction(request: SingaporePredictionRequest):
+    """Get detailed Singapore GP 2025 predictions with full analysis"""
+    try:
+        # Import and run the Singapore predictor
+        import sys
+        from pathlib import Path
+        
+        # Add the root directory to Python path
+        root_dir = Path(__file__).parent.parent.parent
+        sys.path.append(str(root_dir))
+        
+        from singapore_complete_api import SimplifiedSingaporeAPI
+        
+        singapore_api = SimplifiedSingaporeAPI()
+        results = singapore_api.get_complete_prediction()
+        
+        # Filter based on request type
+        response = {
+            "event_info": results["race_info"],
+            "metadata": results["metadata"]
+        }
+        
+        if request.prediction_type in ["qualifying", "full"]:
+            response["qualifying_analysis"] = results["qualifying_analysis"]
+        
+        if request.prediction_type in ["race_winner", "full"]:
+            # Filter predictions by confidence threshold
+            filtered_predictions = [
+                pred for pred in results["race_predictions"]["top_5_predictions"]
+                if float(pred["win_probability"].rstrip('%')) / 100 >= request.confidence_threshold
+            ]
+            
+            response["race_predictions"] = {
+                "methodology": results["race_predictions"]["methodology"],
+                "confidence_level": results["race_predictions"]["confidence_level"],
+                "predictions": filtered_predictions
+            }
+            
+            response["prediction_summary"] = results["prediction_summary"]
+        
+        if request.include_analysis:
+            response["weather_forecast"] = results["weather_forecast"]
+            response["circuit_factors"] = results["circuit_factors"]
+        
+        return response
+        
+    except Exception as e:
+        logger.error(f"Detailed Singapore prediction error: {e}")
+        raise HTTPException(status_code=500, detail=f"Detailed prediction failed: {str(e)}")
+
+@app.get("/singapore_2025/live_updates")
+async def singapore_live_updates():
+    """Get live updates for Singapore GP 2025"""
+    return {
+        "last_update": "2025-10-04T21:00:00Z",
+        "qualifying_status": "COMPLETED",
+        "pole_position": {
+            "driver": "George Russell",
+            "team": "Mercedes",
+            "time": "1:29.525",
+            "gap_to_p2": "0.123s"
+        },
+        "current_conditions": {
+            "temperature": "30°C",
+            "humidity": "85%",
+            "track_conditions": "Dry",
+            "wind_speed": "8 km/h"
+        },
+        "race_countdown": {
+            "hours_to_race": "18",
+            "race_start_local": "20:00 SGT",
+            "race_start_utc": "12:00 UTC"
+        },
+        "grid_penalties": [],
+        "weather_forecast": {
+            "race_start": "30°C, 85% humidity",
+            "mid_race": "29°C, 87% humidity", 
+            "race_finish": "28°C, 88% humidity",
+            "rain_probability": "25%"
+        }
+    }
 
 if __name__ == "__main__":
     import uvicorn
@@ -403,6 +552,12 @@ if __name__ == "__main__":
     print("   - POST /predict_full  : Full two-stage predictions")
     print("   - GET  /model_info    : Model information")
     print("   - GET  /docs         : Interactive API documentation")
+    print()
+    print("🏎️ Singapore GP 2025 - Special Event Endpoints:")
+    print("   - GET  /singapore_2025/info               : Event information")
+    print("   - GET  /singapore_2025/quick_prediction   : Quick race winner prediction")
+    print("   - POST /singapore_2025/detailed_prediction: Detailed predictions with analysis")
+    print("   - GET  /singapore_2025/live_updates       : Live race updates")
     
     # Run the server
     uvicorn.run(

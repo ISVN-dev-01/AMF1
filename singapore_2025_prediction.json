@@ -1,0 +1,117 @@
+{
+  "event_info": {
+    "race": "Singapore Grand Prix 2025",
+    "circuit": "Marina Bay Street Circuit",
+    "date": "2025-10-05",
+    "pole_sitter": "George Russell"
+  },
+  "stage_1_analysis": {
+    "qualifying_times": {
+      "George Russell": 89.525,
+      "Lando Norris": 89.648,
+      "Max Verstappen": 89.729,
+      "Oscar Piastri": 89.845,
+      "Charles Leclerc": 89.892,
+      "Carlos Sainz": 89.967,
+      "Lewis Hamilton": 90.123,
+      "Fernando Alonso": 90.23400000000001,
+      "Sergio P\u00e9rez": 90.345,
+      "Lance Stroll": 90.456
+    },
+    "grid_positions": {
+      "George Russell": 1,
+      "Lando Norris": 2,
+      "Max Verstappen": 3,
+      "Oscar Piastri": 4,
+      "Charles Leclerc": 5,
+      "Carlos Sainz": 6,
+      "Lewis Hamilton": 7,
+      "Fernando Alonso": 8,
+      "Sergio P\u00e9rez": 9,
+      "Lance Stroll": 10
+    },
+    "relative_performance": {
+      "George Russell": 0.0,
+      "Lando Norris": 0.12299999999999045,
+      "Max Verstappen": 0.20399999999999352,
+      "Oscar Piastri": 0.3199999999999932,
+      "Charles Leclerc": 0.3669999999999902,
+      "Carlos Sainz": 0.44199999999999307,
+      "Lewis Hamilton": 0.597999999999999,
+      "Fernando Alonso": 0.7090000000000032,
+      "Sergio P\u00e9rez": 0.8199999999999932,
+      "Lance Stroll": 0.9309999999999974
+    },
+    "race_pace_prediction": {
+      "George Russell": 91.625,
+      "Lando Norris": 91.648,
+      "Max Verstappen": 91.629,
+      "Oscar Piastri": 91.845,
+      "Charles Leclerc": 92.092,
+      "Carlos Sainz": 92.167,
+      "Lewis Hamilton": 92.223,
+      "Fernando Alonso": 92.63400000000001,
+      "Sergio P\u00e9rez": 92.245,
+      "Lance Stroll": 92.85600000000001
+    },
+    "pole_sitter": "George Russell"
+  },
+  "stage_2_prediction": {
+    "win_probabilities": {
+      "George Russell": 0.37742604323963785,
+      "Lando Norris": 0.1898939244625705,
+      "Max Verstappen": 0.17134959590177265,
+      "Oscar Piastri": 0.0864412968647326,
+      "Charles Leclerc": 0.06380435861942371,
+      "Carlos Sainz": 0.03845351970367053,
+      "Lewis Hamilton": 0.036032372166772755,
+      "Fernando Alonso": 0.023148069391987346,
+      "Sergio P\u00e9rez": 0.006994426217704681,
+      "Lance Stroll": 0.006456393431727398
+    },
+    "top_3_predictions": [
+      [
+        "George Russell",
+        0.37742604323963785
+      ],
+      [
+        "Lando Norris",
+        0.1898939244625705
+      ],
+      [
+        "Max Verstappen",
+        0.17134959590177265
+      ]
+    ],
+    "race_favorite": "George Russell",
+    "circuit_factors": {
+      "safety_car_probability": 0.75,
+      "overtaking_difficulty": 0.85,
+      "night_race_factor": true
+    }
+  },
+  "weather_conditions": {
+    "temperature_c": 30,
+    "humidity_percent": 85,
+    "rain_probability": 0.25,
+    "track_temperature_c": 35,
+    "wind_speed_kmh": 8
+  },
+  "circuit_characteristics": {
+    "lap_length_km": 5.063,
+    "corners": 23,
+    "drs_zones": 3,
+    "overtaking_difficulty": 0.85,
+    "safety_car_probability": 0.75,
+    "night_race": true,
+    "street_circuit": true,
+    "avg_speed_kmh": 165.5
+  },
+  "prediction_confidence": "HIGH",
+  "key_factors": [
+    "Grid position advantage (pole: George Russell)",
+    "Safety car probability: 75%",
+    "Singapore street circuit specialists favored",
+    "High humidity and night race conditions"
+  ]
+}

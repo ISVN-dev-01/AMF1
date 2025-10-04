@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import PredictionForm from './components/PredictionForm'
 import PredictionResults from './components/PredictionResults'
+import SingaporeGP2025 from './components/SingaporeGP2025'
 
 export default function Home() {
   const [predictions, setPredictions] = useState(null)
@@ -17,7 +18,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            🏎️ <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">F1 ML Predictor</span>
+            🏎️ <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">AMF1 Predictor</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Harness the power of machine learning to predict qualifying times and race winners. 
@@ -44,6 +45,11 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-white mb-2">Weather Integration</h3>
             <p className="text-gray-400">Factor in real-time weather conditions including temperature, humidity, and track conditions.</p>
           </div>
+        </div>
+
+        {/* Singapore GP 2025 - Special Event */}
+        <div className="mb-12">
+          <SingaporeGP2025 />
         </div>
 
         {/* Main Interface */}
