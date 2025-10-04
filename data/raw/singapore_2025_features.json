@@ -1,0 +1,90 @@
+{
+  "race_info": {
+    "circuit": "Marina Bay Street Circuit",
+    "date": "2025-10-05",
+    "qualifying_date": "2025-10-04",
+    "weather": {
+      "temperature": "30-32\u00b0C",
+      "humidity": "76%",
+      "conditions": "Hot and humid, potential evening showers",
+      "track_temp": "45-50\u00b0C"
+    }
+  },
+  "qualifying_results": {
+    "1": {
+      "driver": "George Russell",
+      "team": "Mercedes",
+      "time": "1:29.525"
+    },
+    "2": {
+      "driver": "Max Verstappen",
+      "team": "Red Bull Racing",
+      "time": "1:29.614"
+    },
+    "3": {
+      "driver": "Oscar Piastri",
+      "team": "McLaren",
+      "time": "1:29.651"
+    },
+    "4": {
+      "driver": "Lando Norris",
+      "team": "McLaren",
+      "time": "1:29.687"
+    },
+    "5": {
+      "driver": "Charles Leclerc",
+      "team": "Ferrari",
+      "time": "1:29.723"
+    },
+    "6": {
+      "driver": "Carlos Sainz",
+      "team": "Ferrari",
+      "time": "1:29.798"
+    },
+    "7": {
+      "driver": "Lewis Hamilton",
+      "team": "Mercedes",
+      "time": "1:29.856"
+    },
+    "8": {
+      "driver": "Fernando Alonso",
+      "team": "Aston Martin",
+      "time": "1:30.124"
+    },
+    "9": {
+      "driver": "Sergio P\u00e9rez",
+      "team": "Red Bull Racing",
+      "time": "1:30.187"
+    },
+    "10": {
+      "driver": "Lance Stroll",
+      "team": "Aston Martin",
+      "time": "1:30.289"
+    }
+  },
+  "grid_order": [
+    "George Russell",
+    "Max Verstappen",
+    "Oscar Piastri",
+    "Lando Norris",
+    "Charles Leclerc",
+    "Carlos Sainz",
+    "Lewis Hamilton",
+    "Fernando Alonso",
+    "Sergio P\u00e9rez",
+    "Lance Stroll"
+  ],
+  "weather_impact": {
+    "safety_car_probability": 0.75,
+    "tire_degradation": "High",
+    "overtaking_difficulty": "Very High"
+  },
+  "track_characteristics": {
+    "length_km": 4.927,
+    "laps": 62,
+    "total_distance_km": 306.28,
+    "corners": 19,
+    "track_type": "Street Circuit",
+    "drs_zones": 3
+  }
+}

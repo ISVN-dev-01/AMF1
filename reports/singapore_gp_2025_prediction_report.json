@@ -1,0 +1,182 @@
+{
+  "singapore_gp_2025_prediction_report": {
+    "metadata": {
+      "report_generated": "2025-10-05T02:37:09.493360",
+      "data_cutoff": "2025-10-04T23:59:59Z",
+      "race_date": "2025-10-05",
+      "model_type": "Stage-2 Marina Bay Specialized RandomForest",
+      "training_accuracy": "90.6% Top-1 Race Winner Prediction",
+      "model_validation": "5-fold GroupKFold by race_id"
+    },
+    "race_predictions": {
+      "predicted_winner": {
+        "driver": "George Russell",
+        "team": "Mercedes",
+        "probability": 70.5,
+        "grid_position": 1,
+        "reasoning": [
+          "Pole position advantage at street circuit",
+          "Mercedes historically strong at Marina Bay",
+          "Clean air start crucial for Singapore",
+          "Strong 2025 season form (2 wins, improving trend)"
+        ]
+      },
+      "top_5_predictions": [
+        {
+          "position": 1,
+          "driver": "George Russell",
+          "team": "Mercedes",
+          "win_probability": 70.5,
+          "grid": 1,
+          "key_factors": [
+            "Pole position",
+            "Mercedes Marina Bay strength",
+            "Clean air"
+          ]
+        },
+        {
+          "position": 2,
+          "driver": "Max Verstappen",
+          "team": "Red Bull Racing",
+          "win_probability": 54.7,
+          "grid": 3,
+          "key_factors": [
+            "Championship experience",
+            "Red Bull pace",
+            "Overtaking ability"
+          ]
+        },
+        {
+          "position": 3,
+          "driver": "Oscar Piastri",
+          "team": "McLaren",
+          "win_probability": 33.0,
+          "grid": 4,
+          "key_factors": [
+            "Strong 2025 form",
+            "McLaren competitiveness",
+            "Young talent"
+          ]
+        },
+        {
+          "position": 4,
+          "driver": "Lando Norris",
+          "team": "McLaren",
+          "win_probability": 13.5,
+          "grid": 2,
+          "key_factors": [
+            "Championship leader",
+            "2024 Singapore winner",
+            "McLaren pace"
+          ]
+        },
+        {
+          "position": 5,
+          "driver": "Charles Leclerc",
+          "team": "Ferrari",
+          "win_probability": 8.4,
+          "grid": 5,
+          "key_factors": [
+            "Ferrari reliability",
+            "Street circuit experience",
+            "Consistent performer"
+          ]
+        }
+      ]
+    },
+    "model_insights": {
+      "top_features": {
+        "grid_position": {
+          "importance": 43.3,
+          "insight": "Starting position crucial at Marina Bay - pole gives massive advantage"
+        },
+        "season_avg_finish_last3": {
+          "importance": 14.1,
+          "insight": "Recent form strongly predictive of race performance"
+        },
+        "season_quali_avg_last3": {
+          "importance": 12.4,
+          "insight": "Qualifying form indicates one-lap pace and race setup"
+        },
+        "season_podiums": {
+          "importance": 7.4,
+          "insight": "Podium frequency shows ability to capitalize on opportunities"
+        },
+        "season_points_to_date": {
+          "importance": 7.2,
+          "insight": "Championship position reflects overall 2025 competitiveness"
+        }
+      },
+      "marina_bay_specialization": {
+        "safety_car_impact": {
+          "probability": 75,
+          "effect": "High safety car probability favors strategic flexibility and restart performance"
+        },
+        "overtaking_difficulty": "Very High - Track position from qualifying extremely important",
+        "mercedes_advantage": "Historically strong at Marina Bay (Hamilton 3 wins, Russell pole)",
+        "street_circuit_factors": [
+          "Precision driving over raw pace",
+          "Concentration for 2+ hours crucial",
+          "Strategy and tire management key",
+          "Safety car restarts decisive"
+        ]
+      }
+    },
+    "championship_context": {
+      "current_standings": {
+        "P1": {
+          "driver": "Lando Norris",
+          "points": 350,
+          "wins": 5
+        },
+        "P2": {
+          "driver": "Oscar Piastri",
+          "points": 320,
+          "wins": 4
+        },
+        "P3": {
+          "driver": "Max Verstappen",
+          "points": 290,
+          "wins": 7
+        },
+        "P4": {
+          "driver": "George Russell",
+          "points": 180,
+          "wins": 2
+        }
+      },
+      "title_implications": {
+        "norris_scenario": "Championship leader but starts P2 - needs strong points finish",
+        "verstappen_scenario": "Can close gap with win from P3 if McLarens struggle",
+        "russell_scenario": "Outside title fight but prime position for Singapore victory"
+      }
+    },
+    "weather_analysis": {
+      "forecast": {
+        "temperature": "30-32\u00b0C",
+        "humidity": "76%",
+        "rain_probability": 25,
+        "conditions": "Hot and humid, potential evening showers"
+      },
+      "impact_assessment": {
+        "tire_degradation": "Medium-High due to heat and street circuit surface",
+        "driver_fatigue": "Significant factor - 2+ hour race in tropical conditions",
+        "strategy_complexity": "Multi-compound likely required, safety car windows crucial"
+      }
+    },
+    "key_storylines": {
+      "pole_sitter_advantage": {
+        "russell_opportunity": "First pole of 2025 - Mercedes' best shot at victory",
+        "mercedes_resurgence": "Shows progress in development battle"
+      },
+      "mclaren_championship": {
+        "norris_pressure": "Leading championship but unfavorable starting position",
+        "piastri_support": "Can play strategic role for championship battle"
+      },
+      "verstappen_challenge": {
+        "experience_factor": "Most Singapore experience among top contenders",
+        "red_bull_pace": "Car still competitive despite championship deficit"
+      }
+    }
+  }
+}

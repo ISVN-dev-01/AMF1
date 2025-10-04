@@ -1,0 +1,305 @@
+{
+  "driver_features": {
+    "George Russell": {
+      "grid_position": 1,
+      "qualifying_time": "1:29.525",
+      "qualifying_gap": "",
+      "team": "Mercedes",
+      "season_wins": 2,
+      "season_podiums": 6,
+      "season_points": 180,
+      "championship_position": 4,
+      "avg_finish_last_3": 4.7,
+      "form_trend": "Improving",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Max Verstappen": {
+      "grid_position": 2,
+      "qualifying_time": "1:29.614",
+      "qualifying_gap": "+0.089",
+      "team": "Red Bull Racing",
+      "season_wins": 7,
+      "season_podiums": 11,
+      "season_points": 290,
+      "championship_position": 3,
+      "avg_finish_last_3": 3.8,
+      "form_trend": "Strong but inconsistent",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Oscar Piastri": {
+      "grid_position": 3,
+      "qualifying_time": "1:29.651",
+      "qualifying_gap": "+0.126",
+      "team": "McLaren",
+      "season_wins": 4,
+      "season_podiums": 10,
+      "season_points": 320,
+      "championship_position": 2,
+      "avg_finish_last_3": 3.1,
+      "form_trend": "Very Strong",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Lando Norris": {
+      "grid_position": 4,
+      "qualifying_time": "1:29.687",
+      "qualifying_gap": "+0.162",
+      "team": "McLaren",
+      "season_wins": 5,
+      "season_podiums": 12,
+      "season_points": 350,
+      "championship_position": 1,
+      "avg_finish_last_3": 2.3,
+      "form_trend": "Excellent",
+      "marina_wins": 1,
+      "marina_podiums": 2,
+      "marina_avg_finish": 5.5,
+      "marina_specialist_rating": "Emerging",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Charles Leclerc": {
+      "grid_position": 5,
+      "qualifying_time": "1:29.723",
+      "qualifying_gap": "+0.198",
+      "team": "Ferrari",
+      "season_wins": 0,
+      "season_podiums": 2,
+      "season_points": 85,
+      "championship_position": 8,
+      "avg_finish_last_3": 8.5,
+      "form_trend": "Midfield",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Carlos Sainz": {
+      "grid_position": 6,
+      "qualifying_time": "1:29.798",
+      "qualifying_gap": "+0.273",
+      "team": "Ferrari",
+      "season_wins": 0,
+      "season_podiums": 2,
+      "season_points": 85,
+      "championship_position": 8,
+      "avg_finish_last_3": 8.5,
+      "form_trend": "Midfield",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Lewis Hamilton": {
+      "grid_position": 7,
+      "qualifying_time": "1:29.856",
+      "qualifying_gap": "+0.331",
+      "team": "Mercedes",
+      "season_wins": 0,
+      "season_podiums": 2,
+      "season_points": 85,
+      "championship_position": 8,
+      "avg_finish_last_3": 8.5,
+      "form_trend": "Midfield",
+      "marina_wins": 3,
+      "marina_podiums": 6,
+      "marina_avg_finish": 3.2,
+      "marina_specialist_rating": "Very High",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "High"
+    },
+    "Fernando Alonso": {
+      "grid_position": 8,
+      "qualifying_time": "1:30.124",
+      "qualifying_gap": "+0.599",
+      "team": "Aston Martin",
+      "season_wins": 0,
+      "season_podiums": 2,
+      "season_points": 85,
+      "championship_position": 8,
+      "avg_finish_last_3": 8.5,
+      "form_trend": "Midfield",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Sergio P\u00e9rez": {
+      "grid_position": 9,
+      "qualifying_time": "1:30.187",
+      "qualifying_gap": "+0.662",
+      "team": "Red Bull Racing",
+      "season_wins": 0,
+      "season_podiums": 2,
+      "season_points": 85,
+      "championship_position": 8,
+      "avg_finish_last_3": 8.5,
+      "form_trend": "Midfield",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    },
+    "Lance Stroll": {
+      "grid_position": 10,
+      "qualifying_time": "1:30.289",
+      "qualifying_gap": "+0.764",
+      "team": "Aston Martin",
+      "season_wins": 0,
+      "season_podiums": 2,
+      "season_points": 85,
+      "championship_position": 8,
+      "avg_finish_last_3": 8.5,
+      "form_trend": "Midfield",
+      "marina_wins": 0,
+      "marina_podiums": 0,
+      "marina_avg_finish": 12.0,
+      "marina_specialist_rating": "Unknown",
+      "safety_car_prob": 0.75,
+      "overtaking_difficulty": "Very High",
+      "night_race_experience": "Medium"
+    }
+  },
+  "race_context": {
+    "race_date": "2025-10-05",
+    "qualifying_date": "2025-10-04",
+    "cutoff_timestamp": "2025-10-04T23:59:59Z",
+    "weather_forecast": {
+      "temperature": "30-32\u00b0C",
+      "humidity": "76%",
+      "rain_probability": 0.25,
+      "conditions": "Hot, humid, potential evening showers"
+    },
+    "track_info": {
+      "name": "Marina Bay Street Circuit",
+      "location": "Singapore",
+      "length_km": 4.927,
+      "laps": 62,
+      "total_distance": 306.28,
+      "corners": 19,
+      "track_type": "Street Circuit"
+    },
+    "historical_context": {
+      "last_winner": "Lando Norris (2024)",
+      "pole_winner_2024": "Lando Norris",
+      "safety_cars_2024": 2,
+      "overtakes_2024": 8
+    }
+  },
+  "marina_analysis": {
+    "track_info": {
+      "name": "Marina Bay Street Circuit",
+      "location": "Singapore",
+      "length_km": 4.927,
+      "laps": 62,
+      "total_distance": 306.28,
+      "corners": 19,
+      "track_type": "Street Circuit"
+    },
+    "characteristics": {
+      "overtaking_difficulty": "Very High",
+      "safety_car_probability": 0.75,
+      "tire_degradation": "Medium-High",
+      "fuel_consumption": "High",
+      "brake_wear": "Very High",
+      "downforce_level": "High"
+    },
+    "historical_winners": {
+      "2019": {
+        "winner": "Sebastian Vettel",
+        "team": "Ferrari"
+      },
+      "2018": {
+        "winner": "Lewis Hamilton",
+        "team": "Mercedes"
+      },
+      "2017": {
+        "winner": "Lewis Hamilton",
+        "team": "Mercedes"
+      },
+      "2016": {
+        "winner": "Nico Rosberg",
+        "team": "Mercedes"
+      },
+      "2015": {
+        "winner": "Sebastian Vettel",
+        "team": "Ferrari"
+      },
+      "2014": {
+        "winner": "Lewis Hamilton",
+        "team": "Mercedes"
+      },
+      "2022": {
+        "winner": "Sergio P\u00e9rez",
+        "team": "Red Bull Racing"
+      },
+      "2023": {
+        "winner": "Carlos Sainz",
+        "team": "Ferrari"
+      },
+      "2024": {
+        "winner": "Lando Norris",
+        "team": "McLaren"
+      }
+    },
+    "pole_to_win_correlation": 0.45,
+    "weather_factors": {
+      "temperature_range": "28-33\u00b0C",
+      "humidity": "70-85%",
+      "rain_probability": 0.3,
+      "night_race": true,
+      "tropical_conditions": true
+    },
+    "driver_specialists": {
+      "Lewis Hamilton": {
+        "marina_wins": 3,
+        "marina_podiums": 6,
+        "avg_finish": 3.2,
+        "specialist_rating": "Very High"
+      },
+      "Sebastian Vettel": {
+        "marina_wins": 2,
+        "marina_podiums": 4,
+        "avg_finish": 4.1,
+        "specialist_rating": "High"
+      },
+      "Lando Norris": {
+        "marina_wins": 1,
+        "marina_podiums": 2,
+        "avg_finish": 5.5,
+        "specialist_rating": "Emerging"
+      }
+    }
+  }
+}
