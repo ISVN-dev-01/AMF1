@@ -1,0 +1,18 @@
+{
+  "data_overview": {
+    "2025_races_completed": 17,
+    "singapore_qualifying_completed": true,
+    "george_russell_pole": true,
+    "data_cutoff": "2025-10-04T23:59:59Z"
+  },
+  "championship_leader": "Lando Norris",
+  "marina_bay_specialist": "Lewis Hamilton (historical)",
+  "singapore_2025_favorite": "George Russell (pole + Mercedes Singapore strength)",
+  "key_factors": [
+    "George Russell starts from pole position",
+    "McLaren drivers strong in 2025 but start P3/P4",
+    "High safety car probability (75%)",
+    "Mercedes historically strong at Marina Bay",
+    "Max Verstappen competitive from P2"
+  ]
+}

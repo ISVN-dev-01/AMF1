@@ -8,6 +8,7 @@ from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
+from contextlib import asynccontextmanager
 import joblib
 import pandas as pd
 import numpy as np
@@ -36,13 +37,30 @@ except ImportError as e:
     f1_monitor = DummyMonitor()
     def update_race_metrics(*args, **kwargs): pass
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Application lifespan handler"""
+    # Startup
+    logger.info("🚀 Starting F1 Prediction API...")
+    success = load_models()
+    if not success:
+        logger.error("❌ Failed to load models - API may not work correctly")
+    else:
+        logger.info("✅ API ready for predictions")
+    
+    yield
+    
+    # Shutdown
+    logger.info("👋 Shutting down F1 Prediction API...")
+
 # Initialize FastAPI app
 app = FastAPI(
     title="F1 Prediction API",
     description="Formula 1 Machine Learning Prediction Service - Qualifying Times & Race Winners",
     version="1.0.0",
     docs_url="/docs",
-    redoc_url="/redoc"
+    redoc_url="/redoc",
+    lifespan=lifespan
 )
 
 # Add CORS middleware to allow frontend connections
@@ -165,15 +183,7 @@ def prepare_features_from_request(drivers: List[DriverFeatures]) -> pd.DataFrame
     
     return pd.DataFrame(df_data)
 
-@app.on_event("startup")
-async def startup_event():
-    """Load models on startup"""
-    logger.info("🚀 Starting F1 Prediction API...")
-    success = load_models()
-    if not success:
-        logger.error("❌ Failed to load models - API may not work correctly")
-    else:
-        logger.info("✅ API ready for predictions")
+
 
 @app.get("/")
 async def root():
