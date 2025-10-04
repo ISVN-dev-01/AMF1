@@ -13,9 +13,14 @@ import sys
 import os
 
 # Add src to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src', 'models'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
-from prepare_data import F1DataPreparer
+try:
+    from src.models.prepare_data import F1DataPreparer
+except ImportError:
+    # Try alternative path
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+    from models.prepare_data import F1DataPreparer
 
 def test_phase5_implementation():
     """Test Phase 5 implementation with different prediction tasks"""

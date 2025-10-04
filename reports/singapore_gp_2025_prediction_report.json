@@ -1,7 +1,7 @@
 {
   "singapore_gp_2025_prediction_report": {
     "metadata": {
-      "report_generated": "2025-10-05T02:37:09.493360",
+      "report_generated": "2025-10-05T02:53:08.948077",
       "data_cutoff": "2025-10-04T23:59:59Z",
       "race_date": "2025-10-05",
       "model_type": "Stage-2 Marina Bay Specialized RandomForest",
