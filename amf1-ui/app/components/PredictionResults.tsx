@@ -90,7 +90,7 @@ export default function PredictionResults({ predictions, loading }: PredictionRe
           <h3 className="text-white font-medium mb-2">Prediction Failed</h3>
           <p className="text-red-300 text-sm">{predictions.error}</p>
           <div className="mt-4 text-xs text-gray-400">
-            Make sure the F1 ML API is running on localhost:8080
+            Make sure the F1 ML API is running on localhost:8000
           </div>
         </div>
       </div>

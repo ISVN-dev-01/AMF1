@@ -77,7 +77,7 @@ export default function PredictionForm({ onPredictions, loading, setLoading }: P
       const endpoint = predictionType === 'quali' ? 'predict_quali' : 
                      predictionType === 'race' ? 'predict_race' : 'predict_full'
       
-      const response = await axios.post(`http://localhost:8080/${endpoint}`, {
+      const response = await axios.post(`http://localhost:8000/${endpoint}`, {
         drivers: drivers
       })
       

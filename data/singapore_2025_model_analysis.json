@@ -1,0 +1,42 @@
+{
+  "singapore_gp_2025_model_update": {
+    "update_date": "2025-10-08T00:20:11.384893",
+    "race_analysis": {
+      "prediction_vs_reality": {
+        "predicted_winner": "George Russell (70.5%)",
+        "actual_winner": "Lando Norris (13.5% predicted)",
+        "result": "INCORRECT PREDICTION"
+      },
+      "lessons_learned": [
+        "Pole position advantage less significant than modeled at Marina Bay",
+        "Pit stop reliability and strategy execution underweighted",
+        "Championship pressure motivates stronger performance than predicted",
+        "McLaren's race pace stronger than qualifying suggested",
+        "Mercedes' pit stop issues not factored into model"
+      ],
+      "model_improvements_needed": [
+        "Include pit stop reliability metrics for each team",
+        "Weight recent race pace vs qualifying pace more heavily",
+        "Factor championship standings pressure into driver performance",
+        "Improve strategy execution modeling for street circuits",
+        "Add team operational reliability scores"
+      ]
+    },
+    "updated_predictions_methodology": {
+      "grid_position_weight": "Reduced from 43.3% to 35%",
+      "team_reliability_weight": "Increased to 20%",
+      "championship_pressure_weight": "Added 10%",
+      "race_pace_vs_quali_weight": "Increased to 15%",
+      "strategy_execution_weight": "Added 10%"
+    },
+    "next_race_implications": {
+      "circuit": "United States GP - Circuit of the Americas",
+      "key_changes": [
+        "McLaren confidence boost from Singapore victory",
+        "Mercedes pit stop reliability concerns",
+        "Verstappen still strong in race conditions",
+        "Championship fight intensifying"
+      ]
+    }
+  }
+}

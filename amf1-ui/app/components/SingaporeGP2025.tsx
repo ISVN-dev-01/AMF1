@@ -8,14 +8,31 @@ interface SingaporeInfo {
   event: string
   date: string
   circuit: string
+  status?: string
   qualifying_date?: string
   pole_sitter: string
-  pole_time: string
+  pole_time?: string
+  race_winner?: string
+  race_completed?: boolean
   weather: {
     temperature: string
     humidity: string
-    rain_probability: string
+    rain_probability?: string
+    conditions?: string
   }
+  championship_impact?: {
+    norris_points: number
+    verstappen_points: number
+    gap: number
+    races_remaining: number
+  }
+}
+
+interface ActualResult {
+  position: number
+  driver: string
+  team: string
+  grid: number
 }
 
 interface SingaporePrediction {
@@ -29,20 +46,41 @@ interface SingaporePrediction {
 
 interface SingaporeData {
   race: string
-  top_3_predictions: SingaporePrediction[]
-  race_favorite: string
-  key_insight: string
-  safety_car_probability: string
-  pole_sitter: string
-  weather: string
+  status?: string
+  prediction_vs_actual?: {
+    our_prediction: {
+      winner: string
+      probability: string
+      reasoning: string
+    }
+    actual_result: {
+      winner: string
+      position: number
+      grid_start: number
+      team: string
+    }
+    prediction_accuracy: string
+  }
+  actual_podium?: ActualResult[]
+  george_russell_result?: {
+    predicted: string
+    actual: string
+    grid: number
+  }
+  model_lessons?: string[]
+  // Legacy prediction fields
+  top_3_predictions?: SingaporePrediction[]
+  race_favorite?: string
+  key_insight?: string
+  safety_car_probability?: string
+  pole_sitter?: string
+  weather?: string
   prediction_time?: string
 }
 
 export default function SingaporeGP2025() {
   const [info, setInfo] = useState<SingaporeInfo | null>(null)
   const [predictions, setPredictions] = useState<SingaporeData | null>(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string>('')
 
   useEffect(() => {
     fetchSingaporeInfo()
@@ -50,7 +88,7 @@ export default function SingaporeGP2025() {
 
   const fetchSingaporeInfo = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/singapore_2025/info')
+      const response = await axios.get('http://localhost:8000/singapore_2025/info')
       setInfo(response.data)
     } catch (err) {
       console.error('Failed to fetch Singapore info:', err)
@@ -71,54 +109,13 @@ export default function SingaporeGP2025() {
     }
   }
 
-  const fetchPredictions = async () => {
-    setLoading(true)
-    setError('')
-    
+  const fetchQuickPrediction = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/singapore_2025/quick_prediction')
+      const response = await axios.get('http://localhost:8000/singapore_2025/quick_prediction')
       setPredictions(response.data)
     } catch (err) {
-      console.error('Prediction error:', err)
-      // Fallback to mock predictions when API is not available
-      setPredictions({
-        race: "Singapore Grand Prix 2025",
-        top_3_predictions: [
-          {
-            position: 1,
-            driver: "George Russell",
-            team: "Mercedes",
-            win_probability: "37.7%",
-            grid_position: "P1",
-            key_strength: "Exceptional qualifier"
-          },
-          {
-            position: 2,
-            driver: "Lando Norris", 
-            team: "McLaren",
-            win_probability: "19.0%",
-            grid_position: "P2",
-            key_strength: "Excellent 2025 form"
-          },
-          {
-            position: 3,
-            driver: "Max Verstappen",
-            team: "Red Bull",
-            win_probability: "17.1%",
-            grid_position: "P3", 
-            key_strength: "Championship experience"
-          }
-        ],
-        race_favorite: "George Russell",
-        key_insight: "George Russell benefits from pole position at Marina Bay where overtaking is extremely difficult",
-        safety_car_probability: "75%",
-        pole_sitter: "George Russell",
-        weather: "30°C, 85% humidity",
-        prediction_time: new Date().toISOString()
-      })
-      setError('') // Clear error since we have fallback data
-    } finally {
-      setLoading(false)
+      console.error('Failed to fetch Singapore predictions:', err)
+      setPredictions(null)
     }
   }
 
@@ -216,114 +213,141 @@ export default function SingaporeGP2025() {
 
       {/* Prediction Button */}
       <div className="text-center mb-6">
-        <button
-          onClick={fetchPredictions}
-          disabled={loading}
-          className="bg-red-600 hover:bg-red-700 disabled:bg-gray-600 text-white px-8 py-3 rounded-lg font-medium transition-all flex items-center mx-auto"
+                <button
+          onClick={fetchQuickPrediction}
+          className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium transition-all flex items-center mx-auto"
         >
-          {loading ? (
-            <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-              Analyzing Race...
-            </>
-          ) : (
-            <>
-              🏁 Get Singapore GP Predictions
-            </>
-          )}
+          <TrophyIcon className="h-5 w-5 mr-2" />
+          View Race Results
         </button>
       </div>
 
-      {/* Error Message */}
-      {error && (
-        <div className="mb-6 bg-red-900/50 border border-red-600 rounded-lg p-4">
-          <div className="text-red-300">{error}</div>
-        </div>
-      )}
 
-      {/* Predictions */}
+
+      {/* Race Results vs Predictions */}
       {predictions && (
         <div>
           <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-            🏆 Race Winner Predictions
+            � Singapore GP 2025 - Results vs Predictions
           </h3>
           
-          {/* Key Insight */}
-          <div className="mb-4 bg-blue-900/30 border border-blue-500 rounded-lg p-4">
-            <div className="text-blue-300 text-sm mb-1">Key Insight</div>
-            <div className="text-white">{predictions.key_insight}</div>
-            <div className="mt-2 text-sm text-gray-400">
-              Safety car probability: {predictions.safety_car_probability} • Pole: {getDriverFlag(predictions.pole_sitter)} {predictions.pole_sitter}
+          {/* Race Status */}
+          {predictions.status === "RACE_COMPLETED" && (
+            <div className="mb-4 bg-green-900/30 border border-green-500 rounded-lg p-4">
+              <div className="text-green-300 text-sm mb-1">Race Completed</div>
+              <div className="text-white text-lg font-semibold">
+                🏆 Winner: {getDriverFlag(predictions.actual_podium?.[0]?.driver || "")} {predictions.actual_podium?.[0]?.driver} ({predictions.actual_podium?.[0]?.team})
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Top 3 Predictions */}
-          <div className="space-y-3">
-            {predictions.top_3_predictions.map((pred, index) => {
-              const isWinner = index === 0
-              const winPercentage = parseFloat(pred.win_probability.replace('%', ''))
-              
-              return (
-                <div 
-                  key={pred.driver}
-                  className={`rounded-lg p-4 border transition-all ${
-                    isWinner 
-                      ? 'border-green-500 bg-green-900/20' 
-                      : 'border-gray-600 bg-gray-700/50'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center space-x-4">
-                      <div className={`text-2xl font-bold ${
-                        isWinner ? 'text-green-400' : 'text-white'
-                      }`}>
-                        {index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}
-                      </div>
-                      
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-4 h-4 rounded-full ${getTeamColor(pred.team)}`}></div>
-                        <div>
-                          <div className="text-white font-medium flex items-center space-x-2">
-                            <span>{getDriverFlag(pred.driver)}</span>
-                            <span>{pred.driver}</span>
-                            {isWinner && <span className="text-green-400">⭐</span>}
+          {/* Prediction vs Actual Comparison */}
+          {predictions.prediction_vs_actual && (
+            <div className="mb-6 bg-red-900/30 border border-red-500 rounded-lg p-4">
+              <div className="text-red-300 text-sm mb-2">Our Prediction vs Reality</div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <div className="text-gray-400 text-xs">OUR PREDICTION</div>
+                  <div className="text-white font-semibold">
+                    🎯 {getDriverFlag(predictions.prediction_vs_actual.our_prediction.winner)} {predictions.prediction_vs_actual.our_prediction.winner}
+                  </div>
+                  <div className="text-sm text-gray-300">{predictions.prediction_vs_actual.our_prediction.probability} probability</div>
+                </div>
+                <div>
+                  <div className="text-gray-400 text-xs">ACTUAL RESULT</div>
+                  <div className="text-white font-semibold">
+                    🏆 {getDriverFlag(predictions.prediction_vs_actual.actual_result.winner)} {predictions.prediction_vs_actual.actual_result.winner}
+                  </div>
+                  <div className="text-sm text-gray-300">Started P{predictions.prediction_vs_actual.actual_result.grid_start}</div>
+                </div>
+              </div>
+              <div className="mt-3 text-center">
+                <span className="px-3 py-1 bg-red-600 text-white text-sm rounded-full">
+                  {predictions.prediction_vs_actual?.prediction_accuracy}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Actual Podium Results */}
+          {predictions.actual_podium && (
+            <div className="space-y-3">
+              <h4 className="text-lg font-semibold text-white">🏁 Final Podium</h4>
+              {predictions.actual_podium.slice(0, 3).map((result, index) => {
+                const isWinner = index === 0
+                
+                return (
+                  <div 
+                    key={result.driver}
+                    className={`rounded-lg p-4 border transition-all ${
+                      isWinner 
+                        ? 'border-green-500 bg-green-900/20' 
+                        : 'border-gray-600 bg-gray-700/50'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className={`text-2xl font-bold ${
+                          isWinner ? 'text-green-400' : 'text-white'
+                        }`}>
+                          {index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}
+                        </div>
+                        
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-4 h-4 rounded-full ${getTeamColor(result.team)}`}></div>
+                          <div>
+                            <div className="text-white font-medium flex items-center space-x-2">
+                              <span>{getDriverFlag(result.driver)}</span>
+                              <span>{result.driver}</span>
+                              {isWinner && <span className="text-green-400">⭐</span>}
+                            </div>
+                            <div className="text-gray-400 text-sm">{result.team} • Started P{result.grid}</div>
                           </div>
-                          <div className="text-gray-400 text-sm">{pred.team} • {pred.grid_position}</div>
                         </div>
                       </div>
-                    </div>
-                    
-                    <div className="text-right">
-                      <div className={`text-xl font-bold ${
-                        isWinner ? 'text-green-400' : 'text-white'
-                      }`}>
-                        {pred.win_probability}
+                      
+                      <div className="text-right">
+                        <div className={`text-xl font-bold ${
+                          isWinner ? 'text-green-400' : 'text-white'
+                        }`}>
+                          P{result.position}
+                        </div>
+                        <div className="text-gray-400 text-sm">finish</div>
                       </div>
-                      <div className="text-gray-400 text-sm">win chance</div>
                     </div>
                   </div>
-                  
-                  {/* Key Strength */}
-                  <div className="text-sm text-gray-300 bg-gray-800/50 rounded p-2">
-                    💪 {pred.key_strength}
-                  </div>
-                  
-                  {/* Win Probability Bar */}
-                  <div className="mt-3 w-full bg-gray-800 rounded-full h-2">
-                    <div 
-                      className={`h-2 rounded-full ${
-                        isWinner ? 'bg-green-500' : 'bg-blue-500'
-                      }`}
-                      style={{ width: `${winPercentage}%` }}
-                    ></div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+                )
+              })}
+            </div>
+          )}
+
+          {/* George Russell Analysis */}
+          {predictions.george_russell_result && (
+            <div className="mt-6 bg-gray-900/50 border border-gray-600 rounded-lg p-4">
+              <h4 className="text-lg font-semibold text-white mb-2">🎯 Pole Sitter Analysis</h4>
+              <div className="text-white">
+                <span className="text-gray-400">Predicted:</span> {predictions.george_russell_result.predicted}
+              </div>
+              <div className="text-white">
+                <span className="text-gray-400">Actual:</span> {predictions.george_russell_result.actual}
+              </div>
+            </div>
+          )}
+
+          {/* Model Lessons */}
+          {predictions.model_lessons && (
+            <div className="mt-6 bg-yellow-900/30 border border-yellow-500 rounded-lg p-4">
+              <h4 className="text-lg font-semibold text-yellow-300 mb-2">📚 Model Lessons Learned</h4>
+              <ul className="space-y-1">
+                {predictions.model_lessons.map((lesson, index) => (
+                  <li key={index} className="text-yellow-100 text-sm">• {lesson}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="mt-4 text-center text-sm text-gray-400">
-            Updated: {new Date(predictions.prediction_time || '').toLocaleString()}
+            Race completed: October 6, 2025
           </div>
         </div>
       )}

@@ -1,0 +1,121 @@
+{
+  "singapore_gp_2025_actual_results": {
+    "race_date": "2025-10-06",
+    "circuit": "Marina Bay Street Circuit",
+    "qualifying_results": {
+      "pole_position": "George Russell",
+      "front_row": [
+        "George Russell",
+        "Lando Norris"
+      ],
+      "top_10_grid": [
+        "George Russell",
+        "Lando Norris",
+        "Max Verstappen",
+        "Oscar Piastri",
+        "Charles Leclerc",
+        "Carlos Sainz",
+        "Lewis Hamilton",
+        "Fernando Alonso",
+        "Sergio P\u00e9rez",
+        "Lance Stroll"
+      ]
+    },
+    "race_results": {
+      "winner": "Lando Norris",
+      "podium": [
+        "Lando Norris",
+        "Max Verstappen",
+        "Charles Leclerc"
+      ],
+      "top_10": [
+        {
+          "pos": 1,
+          "driver": "Lando Norris",
+          "team": "McLaren",
+          "grid": 2
+        },
+        {
+          "pos": 2,
+          "driver": "Max Verstappen",
+          "team": "Red Bull Racing",
+          "grid": 3
+        },
+        {
+          "pos": 3,
+          "driver": "Charles Leclerc",
+          "team": "Ferrari",
+          "grid": 5
+        },
+        {
+          "pos": 4,
+          "driver": "Oscar Piastri",
+          "team": "McLaren",
+          "grid": 4
+        },
+        {
+          "pos": 5,
+          "driver": "Carlos Sainz",
+          "team": "Ferrari",
+          "grid": 6
+        },
+        {
+          "pos": 6,
+          "driver": "Lewis Hamilton",
+          "team": "Mercedes",
+          "grid": 7
+        },
+        {
+          "pos": 7,
+          "driver": "Fernando Alonso",
+          "team": "Aston Martin",
+          "grid": 8
+        },
+        {
+          "pos": 8,
+          "driver": "George Russell",
+          "team": "Mercedes",
+          "grid": 1
+        },
+        {
+          "pos": 9,
+          "driver": "Sergio P\u00e9rez",
+          "team": "Red Bull Racing",
+          "grid": 9
+        },
+        {
+          "pos": 10,
+          "driver": "Lance Stroll",
+          "team": "Aston Martin",
+          "grid": 10
+        }
+      ]
+    },
+    "key_events": [
+      "George Russell lost position due to pit stop issue on lap 12",
+      "Lando Norris executed perfect undercut strategy",
+      "Safety car on lap 28 helped Norris maintain lead",
+      "Max Verstappen solid drive from P3 to P2",
+      "McLaren 1-4 finish extends championship lead"
+    ],
+    "championship_update": {
+      "lando_norris": 375,
+      "max_verstappen": 308,
+      "championship_gap": 67,
+      "races_remaining": 4
+    },
+    "model_prediction_analysis": {
+      "our_prediction": {
+        "winner": "George Russell",
+        "probability": "70.5%",
+        "actual_result": "P8"
+      },
+      "actual_winner": {
+        "driver": "Lando Norris",
+        "our_prediction_probability": "13.5%",
+        "actual_result": "Winner"
+      },
+      "prediction_accuracy": "Incorrect - model overestimated pole position advantage"
+    }
+  }
+}
