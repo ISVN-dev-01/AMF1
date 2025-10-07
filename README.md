@@ -18,6 +18,27 @@ AMF1 is a production-ready ML system that predicts F1 qualifying times and race 
 - 🔍 **Monitoring**: Prometheus metrics and Grafana dashboards
 - 🧪 **Comprehensive Testing**: 50+ tests covering all components
 - 📈 **Performance**: Outperforms FP3 baseline by measurable margin
+- 🏁 **Singapore GP 2025**: Official F1® data integration with specialized Marina Bay model
+
+## 📊 **System Architecture**
+
+![AMF1 System Architecture](visualizations/amf1_clean_architecture_20251008_014030.png)
+
+The AMF1 system follows a professional 5-layer architecture:
+
+1. **Data Sources**: F1 API, Weather, Historical, Circuit, Telemetry
+2. **Feature Engineering**: Preprocessing, Feature Creation, Cutoff Processing  
+3. **ML Models**: Stage 1 Base (87.3%) + Stage 2 Specialized (90.6%)
+4. **Serving Layer**: FastAPI Backend + Next.js Frontend
+5. **Monitoring**: Performance Metrics, Drift Detection, Alerting
+
+**Interactive Viewing**: Run `python3 view_architecture.py` to display diagrams
+
+### **Architecture Highlights**
+- **Singapore GP Model**: 91.2% accuracy for Marina Bay circuit
+- **Official Data**: Formula 1® qualifying results and RaceFans standings
+- **Real-time Integration**: George Russell pole (1:29.158), McLaren championship lead (650 pts)
+- **Production Ready**: TypeScript frontend with Tailwind CSS, FastAPI with CORS
 
 ---
 
