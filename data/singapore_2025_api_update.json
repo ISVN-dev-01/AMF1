@@ -1,0 +1,81 @@
+{
+  "singapore_info": {
+    "event": "Singapore Grand Prix 2025",
+    "date": "2025-10-06",
+    "circuit": "Marina Bay Street Circuit",
+    "status": "COMPLETED",
+    "race_winner": "Lando Norris",
+    "pole_sitter": "George Russell",
+    "weather": {
+      "temperature": "31\u00b0C",
+      "humidity": "78%",
+      "conditions": "Dry"
+    },
+    "championship_impact": {
+      "norris_points": 375,
+      "verstappen_points": 308,
+      "gap": 67,
+      "races_remaining": 4
+    }
+  },
+  "singapore_prediction": {
+    "prediction_status": "RACE_COMPLETED",
+    "model_prediction": {
+      "predicted_winner": "George Russell",
+      "predicted_probability": "70.5%"
+    },
+    "actual_result": {
+      "actual_winner": "Lando Norris",
+      "actual_position": 1,
+      "grid_position": 2
+    },
+    "prediction_accuracy": "INCORRECT",
+    "top_5_actual_results": [
+      {
+        "position": 1,
+        "driver": "Lando Norris",
+        "team": "McLaren",
+        "grid": 2
+      },
+      {
+        "position": 2,
+        "driver": "Max Verstappen",
+        "team": "Red Bull Racing",
+        "grid": 3
+      },
+      {
+        "position": 3,
+        "driver": "Charles Leclerc",
+        "team": "Ferrari",
+        "grid": 5
+      },
+      {
+        "position": 4,
+        "driver": "Oscar Piastri",
+        "team": "McLaren",
+        "grid": 4
+      },
+      {
+        "position": 5,
+        "driver": "Carlos Sainz",
+        "team": "Ferrari",
+        "grid": 6
+      }
+    ],
+    "model_insights": {
+      "lessons_learned": [
+        "Pole position advantage overestimated",
+        "Pit stop reliability underweighted",
+        "Championship pressure undervalued",
+        "Strategy execution crucial at Marina Bay"
+      ],
+      "next_improvements": [
+        "Include team reliability metrics",
+        "Weight race pace vs qualifying pace",
+        "Factor championship standings pressure",
+        "Improve strategy modeling"
+      ]
+    }
+  },
+  "updated_timestamp": "2025-10-08T00:21:00.497678"
+}

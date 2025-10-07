@@ -1,0 +1,43 @@
+{
+  "singapore_gp_2025_actual_model_update": {
+    "update_date": "2025-10-08T00:35:23.340473",
+    "data_source": "Official F1 Results & RaceFans Championship Standings",
+    "qualifying_prediction_analysis": {
+      "pole_prediction": {
+        "predicted": "George Russell (70.5%)",
+        "actual": "George Russell (1:29.158)",
+        "result": "\u2705 CORRECT PREDICTION"
+      },
+      "qualifying_accuracy": "HIGH - Correctly predicted Russell pole position"
+    },
+    "race_prediction_status": {
+      "status": "AWAITING_RACE_RESULTS",
+      "current_prediction": "George Russell from pole position",
+      "probability": "70.5%",
+      "key_factors": [
+        "Pole position advantage at Marina Bay",
+        "Mercedes strong qualifying pace",
+        "Clean air start crucial"
+      ]
+    },
+    "championship_context_update": {
+      "mclaren_leading": "650 points - Dominant constructor lead",
+      "mercedes_second": "325 points - Strong recovery season",
+      "ferrari_third": "298 points - Close fight with Red Bull",
+      "red_bull_fourth": "290 points - Only 8 points behind Ferrari",
+      "tight_midfield": "Championship very competitive"
+    },
+    "race_strategy_implications": {
+      "russell_pole": "Clean air advantage, but must avoid mistakes",
+      "verstappen_p2": "Strong starting position, proven racecraft",
+      "piastri_p3": "McLaren's best grid position, undercut threat",
+      "antonelli_p4": "Rookie pressure at night race",
+      "norris_p5": "Championship leader needs recovery drive"
+    },
+    "model_confidence": {
+      "qualifying_prediction": "\u2705 VALIDATED",
+      "race_prediction": "PENDING RACE RESULTS",
+      "next_update": "After race completion"
+    }
+  }
+}

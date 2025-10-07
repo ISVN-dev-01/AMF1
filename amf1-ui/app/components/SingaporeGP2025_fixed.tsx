@@ -110,8 +110,8 @@ export default function SingaporeGP2025() {
         
         // Fetch race info and predictions from our FastAPI backend
         const [infoResponse, predictionResponse] = await Promise.all([
-          axios.get('http://localhost:8080/singapore_2025/info'),
-          axios.get('http://localhost:8080/singapore_2025/quick_prediction')
+          axios.get('http://localhost:8000/singapore_2025/info'),
+          axios.get('http://localhost:8000/singapore_2025/quick_prediction')
         ])
         
         setInfo(infoResponse.data)
@@ -149,10 +149,10 @@ export default function SingaporeGP2025() {
           data_source: "Formula 1® Official Website & RaceFans",
           qualifying_results: [
             { position: 1, driver: "George Russell", team: "Mercedes", time: "1:29.158" },
-            { position: 2, driver: "Max Verstappen", team: "Red Bull", time: "1:29.312" },
-            { position: 3, driver: "Oscar Piastri", team: "McLaren", time: "1:29.485" },
-            { position: 4, driver: "Andrea Kimi Antonelli", team: "Mercedes", time: "1:29.527" },
-            { position: 5, driver: "Lando Norris", team: "McLaren", time: "1:29.634" }
+            { position: 2, driver: "Max Verstappen", team: "Red Bull", time: "1:29.340" },
+            { position: 3, driver: "Oscar Piastri", team: "McLaren", time: "1:29.524" },
+            { position: 4, driver: "Kimi Antonelli", team: "Mercedes", time: "1:29.537" },
+            { position: 5, driver: "Lando Norris", team: "McLaren", time: "1:29.586" }
           ],
           championship_standings: [
             { position: 1, team: "McLaren", points: 650 },

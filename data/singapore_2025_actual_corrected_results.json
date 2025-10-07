@@ -1,0 +1,110 @@
+{
+  "singapore_gp_2025_actual_results": {
+    "race_date": "2025-10-06",
+    "circuit": "Marina Bay Street Circuit",
+    "data_source": "Formula 1\u00ae - The Official F1\u00ae Website & RaceFans",
+    "qualifying_results": {
+      "pole_position": "George Russell",
+      "pole_time": "1:29.158",
+      "grid_order": [
+        {
+          "position": 1,
+          "driver": "George Russell",
+          "team": "Mercedes",
+          "time": "1:29.158"
+        },
+        {
+          "position": 2,
+          "driver": "Max Verstappen",
+          "team": "Red Bull",
+          "time": "1:29.340"
+        },
+        {
+          "position": 3,
+          "driver": "Oscar Piastri",
+          "team": "McLaren",
+          "time": "1:29.524"
+        },
+        {
+          "position": 4,
+          "driver": "Kimi Antonelli",
+          "team": "Mercedes",
+          "time": "1:29.537"
+        },
+        {
+          "position": 5,
+          "driver": "Lando Norris",
+          "team": "McLaren",
+          "time": "1:29.586"
+        }
+      ]
+    },
+    "race_status": "QUALIFYING_COMPLETED",
+    "race_results_available": false,
+    "championship_standings_after_singapore": {
+      "constructors": [
+        {
+          "position": 1,
+          "team": "McLaren",
+          "points": 650
+        },
+        {
+          "position": 2,
+          "team": "Mercedes",
+          "points": 325
+        },
+        {
+          "position": 3,
+          "team": "Ferrari",
+          "points": 298
+        },
+        {
+          "position": 4,
+          "team": "Red Bull",
+          "points": 290
+        },
+        {
+          "position": 5,
+          "team": "Williams",
+          "points": 102
+        }
+      ]
+    },
+    "qualifying_analysis": {
+      "pole_sitter": "George Russell",
+      "pole_time": "1:29.158",
+      "front_row": [
+        "George Russell",
+        "Max Verstappen"
+      ],
+      "mercedes_performance": "Strong - Both cars in top 4",
+      "mclaren_performance": "Mixed - Piastri P3, Norris P5",
+      "red_bull_performance": "Solid - Verstappen P2",
+      "key_observations": [
+        "George Russell secures pole position",
+        "Mercedes locks out P1 and P4 (Antonelli)",
+        "McLaren split performance - Piastri outqualifies Norris",
+        "Red Bull's Verstappen starts P2",
+        "Tight qualifying - less than 0.5s covers top 5"
+      ]
+    },
+    "model_prediction_vs_qualifying": {
+      "our_prediction": {
+        "predicted_pole": "George Russell",
+        "predicted_probability": "70.5%"
+      },
+      "actual_qualifying": {
+        "pole_sitter": "George Russell",
+        "pole_time": "1:29.158"
+      },
+      "qualifying_prediction_accuracy": "CORRECT - We predicted Russell pole",
+      "grid_analysis": {
+        "russell_p1": "\u2705 Correct prediction",
+        "verstappen_p2": "Strong position for race",
+        "piastri_p3": "McLaren threat from P3",
+        "antonelli_p4": "Mercedes rookie impressive",
+        "norris_p5": "Championship leader starts mid-pack"
+      }
+    }
+  }
+}

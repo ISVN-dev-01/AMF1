@@ -1,0 +1,100 @@
+{
+  "singapore_info": {
+    "event": "Singapore Grand Prix 2025",
+    "date": "2025-10-05",
+    "circuit": "Marina Bay Street Circuit",
+    "status": "QUALIFYING_COMPLETED",
+    "qualifying_date": "2025-10-04",
+    "pole_sitter": "George Russell",
+    "pole_time": "1:29.158",
+    "weather": {
+      "temperature": "30\u00b0C",
+      "humidity": "85%",
+      "conditions": "Hot and Humid"
+    },
+    "championship_leader": "McLaren (650 points)"
+  },
+  "singapore_prediction": {
+    "race": "Singapore Grand Prix 2025",
+    "status": "QUALIFYING_COMPLETED",
+    "data_source": "Official F1 & RaceFans",
+    "qualifying_prediction_accuracy": {
+      "predicted_pole": "George Russell",
+      "actual_pole": "George Russell",
+      "pole_time": "1:29.158",
+      "accuracy": "CORRECT"
+    },
+    "qualifying_top_5": [
+      {
+        "position": 1,
+        "driver": "George Russell",
+        "team": "Mercedes",
+        "time": "1:29.158"
+      },
+      {
+        "position": 2,
+        "driver": "Max Verstappen",
+        "team": "Red Bull",
+        "time": "1:29.312"
+      },
+      {
+        "position": 3,
+        "driver": "Oscar Piastri",
+        "team": "McLaren",
+        "time": "1:29.485"
+      },
+      {
+        "position": 4,
+        "driver": "Andrea Kimi Antonelli",
+        "team": "Mercedes",
+        "time": "1:29.527"
+      },
+      {
+        "position": 5,
+        "driver": "Lando Norris",
+        "team": "McLaren",
+        "time": "1:29.634"
+      }
+    ],
+    "race_prediction": {
+      "status": "RACE_PENDING",
+      "predicted_winner": "George Russell",
+      "probability": "72.5%",
+      "reasoning": "Pole position advantage crucial at Marina Bay street circuit"
+    },
+    "championship_context": {
+      "mclaren_leading": "McLaren leads with 650 points - dominant season",
+      "mercedes_strong": "Mercedes 2nd with 325 points - Russell on pole",
+      "tight_midfield": "Ferrari (298) vs Red Bull (290) battle for 3rd"
+    },
+    "championship_standings": [
+      {
+        "position": 1,
+        "team": "McLaren",
+        "points": 650
+      },
+      {
+        "position": 2,
+        "team": "Mercedes",
+        "points": 325
+      },
+      {
+        "position": 3,
+        "team": "Ferrari",
+        "points": 298
+      },
+      {
+        "position": 4,
+        "team": "Red Bull",
+        "points": 290
+      },
+      {
+        "position": 5,
+        "team": "Williams",
+        "points": 102
+      }
+    ]
+  },
+  "updated_timestamp": "2025-10-08T01:06:17.273374",
+  "data_accuracy": "OFFICIAL_SOURCES"
+}
