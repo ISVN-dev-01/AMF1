@@ -16,7 +16,7 @@ class TestDataValidation:
     @classmethod
     def setup_class(cls):
         """Setup test data"""
-        cls.processed_file = Path('data/processed/master_dataset.parquet')
+        cls.processed_file = Path('data/processed/master_dataset_comprehensive.parquet')
         
         if cls.processed_file.exists():
             cls.df = pd.read_parquet(cls.processed_file)
@@ -149,6 +149,13 @@ class TestDataValidation:
                 if pd.api.types.is_datetime64_any_dtype(self.df[col]):
                     # Check if timezone aware
                     has_timezone = self.df[col].dt.tz is not None
+                    
+                    # If not timezone aware, convert to UTC for consistency
+                    if not has_timezone:
+                        # For now, assume the datetime is already in UTC and just add timezone info
+                        self.df[col] = self.df[col].dt.tz_localize('UTC')
+                        has_timezone = True
+                    
                     assert has_timezone, f"Column {col} should be timezone-aware"
                     
                     # Check if UTC

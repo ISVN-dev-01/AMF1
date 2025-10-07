@@ -6,7 +6,7 @@
   "cv_method": "GroupKFold",
   "cv_splits": 3,
   "group_column": "race_id",
-  "created_at": "2025-10-05T02:51:15.769901",
+  "created_at": "2025-10-08T04:25:03.889870",
   "train_size": 1780,
   "val_size": 200,
   "test_size": 200
