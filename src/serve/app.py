@@ -398,42 +398,43 @@ class SingaporePredictionRequest(BaseModel):
 
 @app.get("/singapore_2025/info")
 async def get_singapore_info():
-    """Get Singapore GP 2025 event information with actual results"""
+    """Get Singapore GP 2025 event information with actual official data"""
     try:
-        # Try to load actual results
+        # Try to load corrected actual results
         import json
         from pathlib import Path
         
-        api_data_path = Path("data/singapore_2025_api_update.json")
-        if api_data_path.exists():
-            with open(api_data_path, 'r') as f:
+        corrected_data_path = Path("data/singapore_2025_corrected_api.json")
+        if corrected_data_path.exists():
+            with open(corrected_data_path, 'r') as f:
                 api_data = json.load(f)
             return api_data["singapore_info"]
     except:
         pass
     
-    # Fallback to actual results
+    # Fallback with official data
     return {
         "event": "Singapore Grand Prix 2025",
         "date": "2025-10-06",
         "circuit": "Marina Bay Street Circuit",
-        "status": "COMPLETED",
-        "qualifying_date": "2025-10-04",
+        "status": "QUALIFYING_COMPLETED",
+        "data_source": "Formula 1® Official Website & RaceFans",
+        "qualifying_completed": True,
+        "race_completed": False,
         "pole_sitter": "George Russell",
-        "pole_time": "1:29.525",
-        "race_winner": "Lando Norris",
-        "race_completed": True,
+        "pole_time": "1:29.158",
         "weather": {
-            "temperature": "31°C",
-            "humidity": "78%",
-            "conditions": "Dry"
+            "temperature": "30°C",
+            "humidity": "85%",
+            "conditions": "Night race"
         },
-        "championship_impact": {
-            "norris_points": 375,
-            "verstappen_points": 308,
-            "gap": 67,
-            "races_remaining": 4
-        },
+        "championship_standings": [
+            {"position": 1, "team": "McLaren", "points": 650},
+            {"position": 2, "team": "Mercedes", "points": 325},
+            {"position": 3, "team": "Ferrari", "points": 298},
+            {"position": 4, "team": "Red Bull", "points": 290},
+            {"position": 5, "team": "Williams", "points": 102}
+        ],
         "circuit_characteristics": {
             "length": "5.063 km",
             "corners": 23,
@@ -445,52 +446,49 @@ async def get_singapore_info():
 
 @app.get("/singapore_2025/quick_prediction")
 async def singapore_quick_prediction():
-    """Get Singapore GP 2025 actual results vs predictions"""
+    """Get Singapore GP 2025 qualifying results and race prediction"""
     try:
-        # Try to load actual results comparison
+        # Try to load corrected actual results
         import json
         from pathlib import Path
         
-        api_data_path = Path("data/singapore_2025_api_update.json")
-        if api_data_path.exists():
-            with open(api_data_path, 'r') as f:
+        corrected_data_path = Path("data/singapore_2025_corrected_api.json")
+        if corrected_data_path.exists():
+            with open(corrected_data_path, 'r') as f:
                 api_data = json.load(f)
             return api_data["singapore_prediction"]
     except:
         pass
     
-    # Fallback to actual results comparison
+    # Fallback with official data
     return {
         "race": "Singapore Grand Prix 2025",
-        "status": "RACE_COMPLETED",
-        "prediction_vs_actual": {
-            "our_prediction": {
-                "winner": "George Russell",
-                "probability": "70.5%",
-                "reasoning": "Pole position + Mercedes Marina Bay strength"
-            },
-            "actual_result": {
-                "winner": "Lando Norris",
-                "position": 1,
-                "grid_start": 2,
-                "team": "McLaren"
-            },
-            "prediction_accuracy": "INCORRECT"
+        "status": "QUALIFYING_COMPLETED",
+        "data_source": "Formula 1® Official Website & RaceFans",
+        "qualifying_prediction_accuracy": {
+            "predicted_pole": "George Russell",
+            "actual_pole": "George Russell",
+            "pole_time": "1:29.158",
+            "accuracy": "✅ CORRECT PREDICTION"
         },
-        "actual_podium": [
-            {"position": 1, "driver": "Lando Norris", "team": "McLaren", "grid": 2},
-            {"position": 2, "driver": "Max Verstappen", "team": "Red Bull Racing", "grid": 3},
-            {"position": 3, "driver": "Charles Leclerc", "team": "Ferrari", "grid": 5}
+        "qualifying_top_5": [
+            {"position": 1, "driver": "George Russell", "team": "Mercedes", "time": "1:29.158"},
+            {"position": 2, "driver": "Max Verstappen", "team": "Red Bull", "time": "1:29.340"},
+            {"position": 3, "driver": "Oscar Piastri", "team": "McLaren", "time": "1:29.524"},
+            {"position": 4, "driver": "Kimi Antonelli", "team": "Mercedes", "time": "1:29.537"},
+            {"position": 5, "driver": "Lando Norris", "team": "McLaren", "time": "1:29.586"}
         ],
-        "george_russell_result": {
-            "predicted": "Winner (70.5%)",
-            "actual": "P8 (pit stop issue)",
-            "grid": 1
+        "race_prediction": {
+            "status": "AWAITING_RACE_RESULTS",
+            "predicted_winner": "George Russell",
+            "probability": "70.5%",
+            "reasoning": "Pole position advantage at Marina Bay"
         },
-        "model_lessons": [
-            "Pole position advantage overestimated",
-            "Pit stop reliability crucial", 
-            "Championship pressure undervalued"
+        "championship_standings": [
+            {"position": 1, "team": "McLaren", "points": 650},
+            {"position": 2, "team": "Mercedes", "points": 325},
+            {"position": 3, "team": "Ferrari", "points": 298},
+            {"position": 4, "team": "Red Bull", "points": 290}
         ]
     }
 
